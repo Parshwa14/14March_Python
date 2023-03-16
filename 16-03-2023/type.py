@@ -1,0 +1,10 @@
+a=45
+b=4.5
+c="Parshwa"
+d=True
+e=1j
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+print(type(e))
