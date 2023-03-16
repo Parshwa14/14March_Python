@@ -1,0 +1,115 @@
+Python
+
+SDLC:- Software Devlopment Life Cycle
+
+There are 6 phases of SDLC:-
+
+1) Requirement Gathering
+
+2) Analysis
+
+3) Designing-- Frontend Part-- HTML,CSS,JS
+
+4) Coding-- Backend-- Database Store-- Python,java,php,etc
+
+5) Testing
+
+6) Maintainence
+
+
+Python?
+
+What is Python?
+
+--> Python is a high level, interpreted and object oriented programming language
+
+
+Compiler-- It translates high level langauge to low level language
+
+It translates whole code at once
+
+
+Use of Python:-
+
+1) To make web application
+
+2) Artificial Intelligence 
+
+3) Machine Learning
+
+4) Robotics
+
+5) Data Analysis and Data Science
+
+
+Simplified and very easy syntax compared to other programming languages
+
+Visual Studio code 
+
+Django Framework
+
+  .py
+
+  .txt
+
+  .docx
+
+  .c
+
+History Of python:-
+
+Python was created by guido van rassoum and it was developed by
+software foundation
+
+Features of Python:-
+
+1) Easy and Simplified Syntax
+
+2) Supports class and objects
+
+3) More Inbuilt functions and libraries
+
+4) Easy to use and fast as compared to other programming languages
+
+   Github:-
+
+
+	To store your data from local computer to git server 
+
+	14mar_python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interpreter:- It translates the code line by line
+
+OOP:- class,objects,functions
+
+
+
+To add or update a file in github use following commands:-
+
+1) git add .
+
+2) git commit -m ""
+
+3) git push -u/-f origin master
+
+
+
+
+
+
+
