@@ -1,0 +1,88 @@
+SDLC
+
+What is Python
+
+History
+
+Use
+
+Features
+
+Github
+
+print=""
+print=''
+print="""
+
+Escape sequence:-
+
+\n-- new line
+\t-- tab(4 spaces)
+\b-- backspace
+
+
+Task:- Write a python program to print your name,age,subject
+and address
+
+Datatypes and Variables:-
+
+integer-- Without point-78
+float-- With point-- 78.56
+boolean-- True or false
+string-- "manav"
+complex-- 75j
+
+Variables:-
+To store a value
+
+a=56
+manav=78
+
+Rules of Variables:-
+
+1) Variables should not contain keywords:-
+int,float=56 x
+
+2) Variables should not start with numbers:-
+1num x
+num1 
+
+3) Variables should not contain white spaces:-
+no of books x
+no_of_books 
+
+4) Variables must start with a-z or A-Z or _
+a,manav,number,books,balls
+
+Comments:- It does not execute
+
+#
+
+type()-- To find the type of variables
+
+Dynamic Value -- user input
+
+input()
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

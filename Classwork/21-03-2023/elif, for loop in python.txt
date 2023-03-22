@@ -1,0 +1,84 @@
+Operators:-
+
+1) Arithmetic Operator
+
+2) Assignment Operator
+
+3) Conditional Operator
+
+4) Logical Operator
+
+5) Membership Operator
+
+
+Conditional Statements:-
+
+1) if statement
+2) if else statement
+3) elif statement or if elif ladder
+
+
+syntax:-
+
+	if condition:
+		statement
+	elif condition:
+		statement
+	else:
+		statement
+
+Task:- Write a python program to check if the 
+given number is positive,negative or zero
+
+Task:- Write a python program to take the name of 
+a person and check if he is eligible to vote or 
+not.
+
+
+Control Structures:-
+
+Loops in Python:-
+To execute a statement repeatedly
+
+Types of Loops:-
+
+1) For Loop
+--> Nested For Loop
+
+2) While Loop
+
+
+range()- To find the range between the numbers.
+
+range(starting range,ending range,jump)
+
+
+
+Task:- Write a python program to check whether the
+given letter is vowel or not.
+
+
+Task:- Write a python program to check the given
+year is leap year or not.
+
+Task:-Write a python program to check whether the
+given number is divisible by 5 and 11.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

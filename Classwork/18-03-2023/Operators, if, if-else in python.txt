@@ -1,0 +1,101 @@
+Variables and Datatypes
+
+int
+str
+float
+bool
+complex
+
+user input-- input
+
+print- ''
+       ""
+       """
+
+type()
+
+sep()
+
+escape sequence-
+\n,\b,\t
+
+format - To form a well structure format of sentence
+
+casting
+
+Operators in Python:-
+
+To perform Operations between two Operands
+
+a + b
+
+Types of Operators:-
+
+1) Arithmetic Operators:-
++
+-
+*
+/
+%
+
+2) Assignment Operators:-
+=
++=
+-=
+*=
+/=
+%=
+
+3) Conditional or Relation Operators:-
+==
+>
+<
+>=
+<=
+!=
+
+Output-- Boolean values -- True or False
+
+4) Logical Operators:-
+
+Logical AND-- Returns true if both the statements were true
+ and
+
+Logical OR-- Returns true if one of the statements were true
+ or
+
+Logical NOT-- It reverse the result,it returns false if both
+the statements were true
+
+5) Membership Operators-- list
+
+	in,not in
+
+	Task:- Write a python program to swap two numbers
+	a=56
+	b=78
+
+	a=78
+	b=56
+
+ Conditional Statements in python:-
+
+	1) if
+	2) if else
+	3) elif
+
+	1) if:-
+	syntax:-
+	if condition:
+		True statement
+
+	2) if else
+	syntax:-
+	if condition:
+		True statement
+
+
+
+
+
+
