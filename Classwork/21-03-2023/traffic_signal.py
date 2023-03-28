@@ -1,5 +1,6 @@
 ts = input("Enter Traffic Signal : ")
 
+
 if ts == "Red" or ts == "red":
     print("Please Stop")
 elif ts == "Green" or ts == "green":
