@@ -1,0 +1,17 @@
+collections:
+
+
+List:
+-to store multiple values in a single variable.
+-List is mutable.
+-we can change the value of list.
+-List is ordered and changeable.
+-List can be dynamic.
+-[]
+
+Tuple:
+-Tuple is used to store multiple values in single variable.
+-Tuple is immutable.
+-Tuple is ordered and unchangeable.
+-Tuple cannot be dynamic.
+-()

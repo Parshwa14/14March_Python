@@ -1,0 +1,5 @@
+Set:
+- Set is used to store multiple values in a single variable.
+- Set is type of collection which is unordered and unindexed.
+- Duplicate values will not be allowed in set.
+- The symbol of set is {}.
