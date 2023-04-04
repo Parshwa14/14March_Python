@@ -1,0 +1,9 @@
+In Python, continue is a control flow statement that is used to skip the current iteration 
+of a loop and move on to the next iteration. When the continue statement is executed inside 
+a loop, the remaining statements in the current iteration are skipped, and the control goes 
+to the next iteration of the loop.
+
+The main purpose of the continue statement is to provide a way to skip over certain parts 
+of the loop when certain conditions are met, without exiting the loop altogether. This is 
+useful in situations where you need to iterate over a sequence of items and perform some 
+action on each item, but you need to skip some items based on a certain condition.

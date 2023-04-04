@@ -51,3 +51,5 @@ newset={"P", "Q", "R", "S", "T", "A", "B"}
 # get the common values of the two sets
 x = newset.intersection(myset)
 print(x)
+
+

@@ -1,0 +1,5 @@
+Dictionary :
+It is a type of collection that
+stores the value in key and value pair.
+
+{}
