@@ -1,0 +1,24 @@
+Que : What are negative indexes and why are they used?
+
+Negative indexes are used in programming languages to 
+access elements of an array or a list from the end, 
+rather than from the beginning. 
+
+In other words, a negative index is an offset from the end 
+of the sequence, rather than from the beginning.
+
+For example, in a list or array with n elements, the 
+index -1 refers to the last element, -2 refers to the 
+second-to-last element, and so on.
+
+Negative indexes are useful when you want to access elements 
+in a sequence from the end, without having to know the length 
+of the sequence beforehand. They are commonly used in situations 
+where you need to iterate over a sequence backwards, or when 
+you need to access the last few elements of a sequence.
+
+In some programming languages, like Python, negative indexes are 
+also used to slice a sequence. 
+
+For example, to get the last three elements of a list, you can use 
+the slice my_list[-3:]
