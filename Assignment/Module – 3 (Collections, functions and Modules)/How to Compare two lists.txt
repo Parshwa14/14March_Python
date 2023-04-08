@@ -1,0 +1,18 @@
+Que : How will you compare two lists?
+
+There are several ways to compare two lists.
+
+1) Using the '==' operator. The simplest way
+to compare two lists is to use the '==' operator.
+This will return 'True' if both lists have the same
+elements in the same order, and 'False' otherwise.
+
+
+2) Using the 'set()' function: Another way to compare
+two lists is to convert them into sets and compare
+them using the '==' operator. This method will ignore
+the order of the elements in the lists.
+
+
+3) Using a loop: You can also compare two lists by iterating 
+over them and comparing each element.

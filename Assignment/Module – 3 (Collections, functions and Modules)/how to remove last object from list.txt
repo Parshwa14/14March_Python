@@ -1,0 +1,12 @@
+Que :How will you remove last object from a list?  
+     Suppose list1 is [2, 33, 222, 14, and 25], 
+     what is list1 [-1]?
+
+To remove the last object from a list, we can use 
+inbuilt method pop() with no argument.
+ex., mylist.pop()
+
+we can also use 'del' statement to remove the last item.
+ex., del mylist[-1]
+
+list1[-1] will print the last object from the list1

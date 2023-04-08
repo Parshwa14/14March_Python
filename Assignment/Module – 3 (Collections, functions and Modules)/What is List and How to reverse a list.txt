@@ -1,0 +1,14 @@
+Que : What is List? How will you reverse a list?
+
+A list is a collection of items that are ordered 
+and mutable, which means that you can add, remove 
+or modify elements within the list. 
+
+Lists are a fundamental data structure used in many 
+programming languages.
+
+To Reverse a list we can use in-built method reverse().
+ex.,mylist.reverse()
+
+We can also reverse a list by slicing.
+ex.,mylist[::-1]
