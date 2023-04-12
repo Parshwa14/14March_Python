@@ -1,0 +1,21 @@
+Function : 
+It is a block of code that we can use again and again.
+It will reduce our code
+
+Function declaration : def funname():
+Function calling: funcname()
+
+
+Types of Function :
+
+1) Inbuilt Function : print,input,len,pop,rev,sort...
+
+2) User Defined Function : myfunc(),sum(),.....
+
+
+Categories of functions:
+
+1) function without paramerter and without return type.
+2) function with parameter and without return type.
+3) function without parameter and with return type.
+4) function with parameter and with return type.
