@@ -1,0 +1,16 @@
+*ags arguments (tuple as parameter)
+
+**kwargs -key with argument (dictionary as parameter)
+
+______________________________________________________________________
+
+Lambda Function :
+Function without any name is called lambda Function.
+
+Lambda funtion is also called anonymous function.
+
+It will reduce our code.
+
+syntax: 
+
+var = lambda args : expression
