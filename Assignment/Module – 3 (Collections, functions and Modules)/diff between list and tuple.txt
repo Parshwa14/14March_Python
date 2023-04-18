@@ -1,0 +1,12 @@
+Que : What is tuple? Difference between list and tuple.
+
+-> A Tuple is an ordered and immutable sequence of elements.
+-> It's content can not be modified.
+-> It can contain any data type, Including other Tuples.
+-> Tuples are often used to group related data together.
+
+Difference between List and Tuple:
+-> The Main Difference between a tuple and a list is that lists are
+mutable and tuples are immutable.
+-> Since Tuples are immutable they are faster and more memory effient than lists, 
+however lists can be modified, they are often more flexible and easier to work with.
