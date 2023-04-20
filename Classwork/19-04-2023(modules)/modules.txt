@@ -1,0 +1,5 @@
+Modules :
+
+Module is a inbuilt library that contain some inbuilt functions in a python program
+
+how to use : import modulename
