@@ -1,0 +1,14 @@
+Que : How Do You Traverse Through A Dictionary Object In Python?
+
+
+1) Transverse through keys
+for key in dict:
+    statement
+
+2) Transverse through values
+for value in dict:
+    statement
+
+3) Transverse through items or key-value pairs
+for key,value in dict.items():
+    statement

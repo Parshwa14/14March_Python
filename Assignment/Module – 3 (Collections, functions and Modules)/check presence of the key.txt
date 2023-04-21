@@ -1,0 +1,10 @@
+Que : How Do You Check The Presence Of A Key In A Dictionary?
+
+-> There are two methods to check the presence of the key in a dictionary.
+1) using 'in' keyword with if else
+ex; if "key" in dict:
+        statement
+
+2) using get() method with if else
+ex; if dict.get("key") is not None:
+        statement

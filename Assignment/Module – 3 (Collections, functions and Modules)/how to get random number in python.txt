@@ -1,0 +1,10 @@
+Que : How can you get a random number in python?
+
+We can get random number in python with the help of its inbuilt module called random.
+
+we can get floating number as well as integers also with the help of the random module.
+
+we can use range function to get random number from a specific range.
+
+we can create a list or tuple and from the items of that list or tuple we can get 
+a random item with random module.
