@@ -1,0 +1,7 @@
+Que : How will you set the starting value in generating random numbers?
+
+-> To set the starting value in generating random numbers we can use range function and
+in that rabge function we have to put the initializing value to set the starting value.
+
+-> We can also use randint() function of random module and put a starting value in the 
+function. to get the random values from that start point.

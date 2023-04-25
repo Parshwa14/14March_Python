@@ -1,0 +1,9 @@
+Que : Why Do You Use the Zip () Method in Python?
+
+The zip() function in Python is used to combine two or more iterables (e.g., lists, tuples) 
+into a single iterable object. It creates an iterator that aggregates elements from each of 
+the iterables.
+
+The most common use case for zip() is when you need to iterate over two or more lists simultaneously. 
+Instead of using nested loops, which can be less efficient and harder to read, you can use zip() to 
+create a new iterable that combines the elements of the input iterables.
