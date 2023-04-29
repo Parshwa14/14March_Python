@@ -1,0 +1,30 @@
+Que : What is File function in python? 
+      What is keywords to create and write file.
+
+-> In Python,the 'File' function is used to open a file and
+   returns the file object.
+
+-> It is built-in function that takes two arguments, the file 
+   name and the mode in which the file is to be opened.
+
+-> The modes can be 'r'(read),'w'(write),'a',(append),'x'(create),
+   or 'b'(binary).
+
+-> To create and write to a file in python you can use the 
+   following keywords:
+  
+   1) 'open': The 'open' Function is used to open a file. 
+            -> It takes two arguments, the file name and 
+               the mode in which the file is to be opened.
+	    -> ex., opening the file in write mode
+		   file = open("example.txt",'w')
+
+   2) 'write': The 'write' method is used to write data to a file.
+	       -> It takes one argument, the data to be written.
+	       -> ex., write some data to the file
+                     file.write("Hello World! , Welcome to Python.")
+
+   3) 'close': The 'close' method is used to close the file.
+	       -> It takes no arguments.
+	       ->ex., close the file 
+		      file.close()

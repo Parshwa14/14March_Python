@@ -1,0 +1,51 @@
+Que : Explain Exception handling. What is an Error in Python?
+
+-> Exception handling is a mechanism in python that allows you
+   to handle errors and other exceptional events that occur 
+   during program execution.
+
+-> In python, an exception is a runtime error that occurs due to
+   some abnormal condition or unexpected event during program 
+   execution.
+
+-> When an exception occurs, python raises an error and halts
+   program execution.
+
+-> However, with exception handling , you can catch these errors,
+   handles them, and continue program execution without crashing
+   the program.
+
+-> Exception handling is done using the 'try' and 'except' statements.
+   The 'try' statement is used to enclose the code that might raise an
+   exception.
+
+-> If an exception occurs within the 'try' block,the program jumps to 
+   the corresponding 'except' block, where you can handle the exception.
+
+-> ex., try:
+            x = 1/0
+        except ZeroDivisionError:
+            print("Division by Zero!")
+
+-> An Error in python is an abnormal condition that causes the program
+   to halt or behave in an unexpected way. 
+
+-> There are three main types of error in python: 
+
+   1) Syntax errors: It occurs when the python interpreter encounters 
+                     an incorrect syntax in the code.
+                     -> These errors prevent the code from executing 
+                     and must be corrected before the program can run.
+
+   2) Runtime errors: It occurs during program execution when an exception
+              	      is raised due to an unexpected event or abnormal
+  	 	      condition.
+		      ->These errors can be handled using exception
+		      handling mechanisms.
+
+   3) Logical errors: It occur when the code runs without errors but
+ 	 	      produces incorrect results due to a flaw in program's
+		      logic.
+		      ->These errors are more difficult to detect and 
+		      fix than syntax and runtime errors and require careful
+		      debugging and testing.
