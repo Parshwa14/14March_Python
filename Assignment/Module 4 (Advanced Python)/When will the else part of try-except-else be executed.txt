@@ -1,0 +1,27 @@
+Que : When will the else part of try-except-else be executed?
+
+-> The 'else' clause in a 'try-except-else' block is executed only when no 
+   exceptions are raised in the 'try' block.
+
+-> The syntax of the 'try-except-else' block is as follows:
+   
+   try:
+       # code that might raise an error
+   except ExceptionType:
+       # handling the exception
+   else:
+       # executed when no exceptions are raised in the try block
+
+
+-> Here, the 'try' block contains the code that might raise an exception. if an
+   exception of type 'ExceptionType' (or any of its subclasses) is raised in the 
+   'try' block,then the corresponding 'except' block is executed to handle the
+   exception.If no exception is raised, then the code in the 'else' block is executed.
+
+-> The 'else' clause is useful for writing code that should be executed if the 'try'
+   block succeeds without any exceptions.For example.,you might use it to clean up 
+   resources or to print a success message.
+
+-> Note that 'else' clause is optional in a 'try-except' block. You can use a 
+   'try-except' block without an 'else' clause to catch and handle the exceptions
+   without executing any code when no exceptions are raised.

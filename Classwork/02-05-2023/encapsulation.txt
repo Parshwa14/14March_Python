@@ -1,0 +1,21 @@
+Encapsulation : Encapsulation is a process which is used to
+wrap the data in a single entity.
+
+-> Encapsulation protects data from outside the class which 
+provides more security to the data.
+
+--> There is two methods of Encapsulation:
+
+1) setter : It is used for set the data.
+
+2) getter : It is used for get the data.
+
+
+
+Access modifier:
+
+ Private mode : It is an access modifier which is only accessible within the class.
+-> Symbol of private mode is __(double underscore)
+
+
+

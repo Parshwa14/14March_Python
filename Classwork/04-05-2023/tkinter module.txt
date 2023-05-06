@@ -1,0 +1,3 @@
+tkinter module: tkinter is used to build GUI applications.
+
+GUI - Graphical User Interface.

@@ -1,0 +1,45 @@
+Que : How many except statements can a try-except block have? 
+      Name Some built-in exception classes:
+
+-> A try-execpt block can have multiple 'except' statements to
+   handle different types of exceptions.
+-> The syntax of try-except statement is:
+
+   try:
+       # code that might raise an exception
+   except Exceptiontype1:
+       # handling exception type 1
+   except Exceptiontype2:
+       # handling exception type 2
+   except Exceptiontype3:
+       # handling exception type 3
+   .
+   . 
+   .
+   except ExceptiontypeN:
+       # handling exception type N
+
+-> where 'Exceptiontype1','Exceptiontype2',Exceptiontype3',...,
+   'ExceptiontypeN' are different exception classes that you want
+   to handle.
+
+-> Here are some built-in exception classes in python:
+
+   -'Exception': The base class for all built-in exceptions.
+   -'ArithmeticError': The base class for arithmetic errors,
+     such as 'ZeroDivisionError' and 'OverflowError'.
+   -'AssertionError': Raised when an 'assert' statement fails.
+   -'AttributeError': Raised when an attribute referance or assignment fails.
+   -'EOFError': Raised when 'input()' function hits the end-of-file condition(EOF)
+     without reading any data.
+   -'FileNotFoundError': Raised when the file or directory is not found by the 
+     'open()' function.
+   -'ImportError': Raised when a module,package or object cannot be imported.
+   -'IndexError': Raised when an index is out of range.
+   -'KeyError': Raised when a dictionary key is not found.
+   -'NameError': Raised when a variable name is not found in the current namespace.
+   -'TypeError': Raised when an operation or function is applied to an object of 
+    inappropriate type.
+   -'ValueError': Raised when an operation or function receives an argument of the 
+    right type but an inappropriate value,such as when converting a string to an integer
+    and the string does not represent a valid integer. 

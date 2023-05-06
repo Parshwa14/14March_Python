@@ -1,0 +1,30 @@
+Que : Can one block of except statements handle multiple exception?
+
+-> Yes, you can use single 'except' block to handle multiple exceptions 
+   by specifying them as a tuple of exception types.
+
+-> ex.,
+	
+	try:
+	    # code that might raise an exception
+	except(exceptionTyep1,exceptionType2):
+	    # handilng both the exceptions
+
+
+-> Here, the 'except' block handles both the 'exceptionType1' and 
+   'exceptionType2' exceptions.
+
+-> If an exception of either type is raised in 'try' block, the corresponding
+   'except' block will be executed to handle the exception.
+
+-> Using a tuple of exception types in a single 'except' block is useful  when 
+   you want to handle multiple related exceptions in the same way.
+
+-> For ex., you might use it to handle different types of I/O errors, or 
+   different types of network errors.
+
+-> It's also worth nothing that you can have multiple 'except'blocks in a 
+   'try-except' block to handle different types of exceptions separately.
+
+-> If an exception is raised that matches the type of one of the except blocks, 
+   only that except block will be executed, and the other except blocks will be skipped.
