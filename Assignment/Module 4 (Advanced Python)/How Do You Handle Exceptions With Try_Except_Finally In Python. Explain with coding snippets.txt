@@ -1,0 +1,67 @@
+Que : How Do You Handle Exceptions With Try/Except/Finally In Python? 
+      Explain with coding snippets.
+
+-> You can handle exceptions with 'try-except-finally' block.Here's an
+   example of how to use this block to handle exceptions.
+
+	try:
+	    # code that might raise an exception
+	except ExceptionType:
+	    # handle the exception
+	finally:
+	    # always execute, whether or not an exception was raised 
+
+-> In this block, you put the code that might raise an exception in the 
+   'try' block. If an exception of type 'ExceptionType' (or any of its subclasees)
+   is raised in the 'try' block, then the corresponding 'except' block is executed 
+   to handle the exception. If no exception is raised, then the code in the 'finally'
+   block is executed.
+
+-> Here's an example that demonstrates how to use a 'try-except-finally' block to
+   handle an exception.
+	
+	try:
+	    num = int(input("Enter a Number : "))
+	    result = 10/num
+	    print("The result is : ",result)
+	except ValueError:
+	    print("You must enter a number")
+	except  ZeroDivisionError:
+	    print("You cannot divide by zero")
+	finally:
+	    print("Thank you for using the program")
+
+-> In this example, the user is prompted to enter a number. The program attempts to 
+   divide 10 by the number and print the result.
+
+-> If the user enters a non-numeric value, a 'ValueError' exception will be raised and
+   corresponding 'except' block will execute to handle the exception. 
+
+-> If the user enters the number zero, a 'ZeroDivisionError' excception will be raised
+   and the corresponding 'except' block will execute to handle the exception. 
+
+-> Regardless  of whether an exception is raised or not, the 'finally' block will always
+   execute, printing a message to thank the user for using the program.
+
+-> You can have multiple 'except' blocks in a 'try-except-finally' block to handle 
+   different types of exceptions separately.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

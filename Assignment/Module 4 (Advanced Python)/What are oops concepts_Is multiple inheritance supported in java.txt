@@ -1,0 +1,41 @@
+Que : What are oops concepts? 
+      Is multiple inheritance supported in java?
+
+-> Object-oriented programming (OOP) is a programming paradigm 
+   that is based on the concept of "objects", which can contain
+   data and code to manipulate that data. OOP revolves around 
+   four main concepts:
+
+   1) Encapsulation : This refers to the practice of bulding data and
+      code into a single unit, and restricting access to the data from
+      outside the unit. In OOP, objects are designed to encapsulate data
+      and behavior.
+
+   2) Inheritance : This refers to the ability of an object to inherit 
+      characteristics(i.e. data and behavior) from a parent object.
+      Inheritance allows objects to be created in a hierarchical manner,
+      where each objects inherits some properties from its parent object.
+
+   3) Polymorphism : This refers to the ability of objects to take on 
+      multiple forms, or to be used in different ways. Polymorphism allows
+      objects to be used interchangeably, as long as they have the same interface.
+
+   4) Abstraction : This refers to the process of generalizing complex details
+      to make them more manageable. In OOP, abstraction is used to create abstract
+      classes and interfaces, which provide a high-level view of objects without 
+      revealing their implementation details.
+
+-> As for multiple inheritance in java, it is not supported directly. 
+
+-> Java does not allows a class to inherit from multiple classes at the same time.
+
+-> However, java does support a form of multiple inheritance through the use of 
+   interfaces.
+
+-> An interface in java defines a set of methods that a class must implement , but
+   it does not provide any implementation of those methods.
+
+-> A class can implement multiple interfaces, effectively inherting the method
+   signatures from all of them. This allows for a form of multiple inheritance 
+   in java, while avoiding the problems that can arise from the diamond problem 
+   in traditional multiple inheritance.

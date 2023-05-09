@@ -1,0 +1,30 @@
+Que : When is the finally block executed?
+
+-> The 'finally' block in a 'try-except-finally' block is executed 
+   regardless of whether an exception is raised or not.
+
+-> The syntax of the 'try-except-finally' block is as follows:
+
+	try:
+	    # code that might raise an error
+	except ExceptionType:
+	    # handle the exception
+	finally:
+	    # always execute, whether or not an exception was raised
+
+-> Here, the 'try' block contains the code that might raise an exception.
+   If an exception of type 'ExceptionType' (or any of its subclasses) is raised 
+   in the 'try' block, then the corresponding 'except' block is executed to 
+   handle the exception. 
+
+-> If no exception is raised, then the code in the 'finally' block will be executed.
+
+-> The 'finally' clause is useful for writing code that should always be executed,
+   regradless of whether or not an exception was raised. 
+
+-> For ex., you might use it to clean up resources such as files or network connections
+   or to ensure that certain actions are always performed, such as logging or closing a GUI window.
+
+-> Note that the 'finally' clause is optional in a 'try-except' block. you can use a 'try-except'
+   block without a 'finally' clause to catch and handle exceptions without executing any code that
+   should always be executed.

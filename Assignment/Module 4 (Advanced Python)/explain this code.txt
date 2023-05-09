@@ -1,0 +1,14 @@
+Que : What happens when „1‟== 1 is executed?
+
+-> When "1" == 1 is executed in python, it will return 'False'.This is because
+   the two operands have different types: "1" is a string and 1 is an integer.
+
+-> In python the '==' operator is used to check if two values are equal.When comparing
+   two values with the '==' operator, Python first checks that the two values are having 
+   the same types. If the types are different, Python will automatically try to convert
+   one of the values to the type of the other value to see if they can be compared. If the 
+   types cannnot be converted, the comparison will always return 'False'.
+
+-> In this case, Python will try to convert the integer '1' to a string so that it can be 
+   compared to the string '"1"'. However '"1"' and '1' are not equivalent when treated as 
+   strings and integers, respectively, so the comparison will always return 'False'.
