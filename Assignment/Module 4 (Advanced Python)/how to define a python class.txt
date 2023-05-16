@@ -1,0 +1,37 @@
+Que : How to Define a Class in Python? What Is Self? 
+      Give An Example Of A Python Class.
+
+
+-> In python, you can define a class using the 'class' keyword.
+   Here's an example of a simple python class:	
+
+ 	class person:
+	    def __init__(self,name,age):
+	        self.name = name
+	        self.age = age
+
+	    def greet(self):
+		print(f"Hello, my name is {self.name}, and I am {self.age} years old.")
+
+-> In this example, we define a class called 'person'.The class has two attributes -
+   'name' and 'age' - which are set using a constructor method called - '__init__'.
+   The constructor takes two parameters, 'name' and 'age', and initializes the 
+   corresponding attributes.
+
+-> The class also has a method called 'greet', which takes no parameters and simply
+   prints a greeting message using the person's name and age.
+
+-> The 'self' keyword is used in python to refer to the object that the method is 
+   being called on. It is similar to the 'this' keyword in other programming 
+   languages.When you create an instance of a class, you can call its methods using
+   the dot notation, and the 'self' parameter will be automatically passed in.
+
+-> Here's an example of how to create an instance of the 'person' class and call its 
+   'greet' method:
+
+	p = person("Parshwa",25)
+	p.greet()   # output: Hello, my name is Parshwa, and I am 25 years old.
+
+-> In this example, we create an instance of the 'person' class with the name 
+   'Parshwa' and age 25, and assign it to the variable 'p'.We then call the 'greet'
+   method on the 'p' object, which print out the greeting message.

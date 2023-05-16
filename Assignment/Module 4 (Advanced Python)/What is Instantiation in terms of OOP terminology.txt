@@ -1,0 +1,44 @@
+Que : What is Instantiation in terms of OOP terminology?
+
+-> In ibject-oriented programming (OOP), instantiation refers to the 
+   process of creating an instance of a class.
+
+-> An instance, also known as an object, is a concrete representation of 
+   a class. It is created from the blueprint provided by the class, and it
+   has its own unique identity, attributes, and behaviors.
+
+-> When you instantiate a class, you create a specific object of that class
+   type, which can have its own distinct set of values for the class attributes.
+
+-> Each instance of a class is independent of other instances, meaning they can 
+   have different states and behaviors.
+
+-> In terms of OOP terminology, instantiation is the act of creating an object by
+   invoking the class constructor.
+
+-> The constructor is a special method in a class that is responsible for initializing
+   the object's attributes and preparing it for use.
+
+-> Here's an example of instantiating a class in python:
+
+
+	class person:
+	    def __init__(self,name):
+	        self.name = name
+
+	    def greet(self):
+	        print("Hello, my name is ",self.name)
+
+	# Instantiate a person object
+	p = person("Parshwa")
+	
+	# Access the object's attribute and invoke its method
+	print(p.name)	# output: Parshwa
+	p.greet()	# output: Hello, my name is Parshwa
+
+
+-> In this example, we define a "person"  class with an "__init__" method that takes a 
+   "name" parameter and initializes the "name"  attribute of the object. We then create
+   an instance of the "person" class by invoking its constructor and passing the desired
+   name as an argument. This instance "p", is now an object of type "person" and can 
+   access the attributes and methods defined in the class. 

@@ -1,0 +1,42 @@
+Que : What is used to check whether an object o is an instance of class A?
+
+
+-> In python, you can use the "isinstance()" function to check whether an object
+   "o" is an instance of a particular class "A".
+
+-> The "isinstance()" function takes two arguments: the object "o" and the class 
+   or tuple of classes "A". It returns "True" if the object "o" is an instance of
+   the class "A" or any of the classes in the tuple "A" and "False" otherwise.
+
+-> Here's an example that demonstrates the usage of "isinstance()":
+
+	class A:
+	    pass
+	class B(A):
+	    pass
+
+
+	obj_a = A()
+	obj_b = B()
+
+
+	print(isinstance(obj_a, A))    # output : True
+	print(isinstance(obj_a, A))    # output : True
+	print(isinstance(obj_b, B))    # output : True
+	print(isinstance(obj_a, B))    # output : False
+
+
+-> In this example, we define two classes, "A" and "B", where "B" is a subclass of 
+   "A". We create instances "obj_a" and "obj_b" of these classes.
+
+-> Using "isinstance()", we can check whether an object is an instance of a specific
+   class or its subclasses. In the example, "isinstance(obj_a,A)" returns "True" 
+   because "obj_a" is an instance of class "A". "isinstance(obj_b,A)" returns "True"
+   because "obj_b" is an instance of class "B", which is a subclasss of "A". 
+   The function also correctly identifies that "obj_b" is an instance of class "B"  
+   using "isinstance(obj_b,B)".
+
+-> It's important to note that "isinstance()" checks for inheritance as well. So if
+   an object is an instance of a subclass, it will also be considered an instance of
+   its superclass. However,the reverse is not true-an instance of a superclass is not
+   considered an instance of its subclass.

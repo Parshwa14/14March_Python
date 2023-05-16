@@ -1,0 +1,71 @@
+Que : What relationship is appropriate for Student and Person?
+
+-> In the context of a university or educational institution, 
+   the relationship between "Student" and "Person" can be 
+   represented as a subclass relationship, indicating that 
+   a "Student" is a specialized type of "Person." 
+   This relationship can be appropriately modeled using inheritance.
+
+-> Here's a brief explanation of the relationship and its implementation:
+
+-> Inheritance: Inheritance is a fundamental concept in object-oriented 
+   programming that allows one class to inherit attributes and methods 
+   from another class. In this case, you can define a class called 
+   "Person" as the base or superclass, and a class called "Student" 
+   as the derived or subclass.
+
+-> Subclass Relationship: A "Student" is a specialized type of "Person," 
+   which means that a "Student" inherits the characteristics and behaviors 
+   of a "Person" and can also have its unique attributes and behaviors 
+   specific to being a student.
+
+-> Here's an example implementation in python:
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print("Hello, my name is", self.name)
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def study(self):
+        print("I am a student with ID", self.student_id, "and I am studying.")
+
+# Create instances of the classes
+person = Person("Alice", 30)
+student = Student("Bob", 20, "S123")
+
+# Access attributes and invoke methods
+print(person.name)        # Output: Alice
+print(student.name)       # Output: Bob
+print(student.student_id) # Output: S123
+
+person.greet()            # Output: Hello, my name is Alice
+student.greet()           # Output: Hello, my name is Bob
+
+student.study()           # Output: I am a student with ID S123 and I am studying.
+
+
+
+-> In this example, the Person class serves as the superclass, representing 
+   a generic person with attributes such as name and age. The Student class 
+   is defined as a subclass of Person, inheriting the attributes and methods 
+   of the Person class.
+
+-> The Student class extends the Person class by adding an additional attribute 
+   student_id and a method study() that is specific to students.
+
+-> By using inheritance, a "Student" object can access both the attributes and 
+   methods of the base "Person" class, as well as its own unique attributes and methods.
+
+-> This subclass relationship between "Student" and "Person" accurately reflects the 
+   "is-a" relationship, indicating that a "Student" is a specialized type of "Person" 
+   with additional features and behaviors associated with being a student.
+

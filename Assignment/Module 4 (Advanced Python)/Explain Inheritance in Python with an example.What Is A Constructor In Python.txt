@@ -1,0 +1,60 @@
+Que : Explain Inheritance in Python with an example? 
+      What is init? Or What Is A Constructor In Python?
+
+-> Inheritance is a key feature of object-oriented programming that
+   allows a class to inherit properties and methods from another class.
+
+-> In python, you can create a new class by deriving it from an existing class,
+   and the new class will inherit all the attributes and behaviors of the parent
+   class.
+
+-> This relationship between classes is often referred to as an "is-a" relationship.
+
+-> Here's an example that demonstrates inheritance in python.
+
+	class animal:
+	    def __init__(self,name):
+	        self.name = name
+	
+	    def speak(self):
+	        print("This animal makes a sound.")
+
+	class dog(animal):
+	    def speak(self):
+	        print("Woof!!")
+
+	class cat(animal):
+	    def speak(self):
+	        print("Meow!!")
+
+	# create instances of the derived classes
+	d = dog("Buddy")
+	c = cat("Whiskers")
+
+	
+	# call the overridden method on the derived classes
+	d.speak() #output: Woof!!
+	c.speak() #output: Meow!!
+
+-> In this example, we have a base class called "animal" which has a "__init__" method
+   (constructor) and a "speak" method.
+
+-> The "__init__"" method initializes the "name" attribute, and the "speak" method prints
+   a generic sound of an animal.
+
+-> We then define two derived classes, "dog" and "cat", which inherit from the 
+   "animal" class. The derived classes override the "speak" method to provide their
+   specific sounds.
+
+-> We create instances of the "dog" and "cat" classes, and when we call the "speak"
+   method on these instances, the overridden method in the respective derived class 
+   is executed.
+
+-> The "__init__" method, also known as a constructor, is a special method in python
+   classes that gets called when an object is instantiated from the class.
+
+-> It is used to initialize the attributes of the object.The "self" parameter refers to the
+   instance of the object being created.
+
+-> By convention, the constructor method is named "__init__", and it is commonly used to
+   set up the initial state of an object by assigning values to its attributes.
