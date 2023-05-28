@@ -1,6 +1,8 @@
-def main_menu():
-    return "\t\t1) Manager\n \t\t2) Customer\n \t\t3) exit\n"
+def menu(): 
     
-
-def menu():
-    return "\n\t\tFruit Market Manager\n\n \t\t1) Add Fruit Stock\n \t\t2) View Fruit Stock\n \t\t3) Update Fruit Stock"
+    return """
+                    press 1 for add fruits 
+                    press 2 for view fruits 
+                    press 3 for purchase fruits 
+                    press 4 for exit
+        """

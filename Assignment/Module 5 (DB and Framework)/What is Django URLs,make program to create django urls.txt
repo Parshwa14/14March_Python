@@ -1,0 +1,60 @@
+Que : What is Django URLs?make program to create django urls.
+
+-> In Django, URLs(Uniform Resource Locators) are used to map incoming 
+   HTTP requests to the corresponding view functions or class-based views
+   that handle those requests.URLs define the routing and navigation structure
+   of a Django web application.
+
+-> The Django URL configuration is defined in the 'urls.py' module within each
+   Django app. This module contains a collection of URL patterns that specify 
+   URL patterns that specify the URL patterns to match and the corresponding 
+   view functions to call.
+
+-> To create a Django URL configuration, you need to perform the following steps:
+
+   1) Open the 'urls.py' file within your Django app or create one if it doesn't exist.
+
+   2) Import the necessary modules;
+    
+	from django.urls import path
+	from . import views
+
+   3) Define your URL patterns using the 'path()' function:
+
+	urlpatterns = [
+		path('url-pattern/', views.view_function_name, name='url-name'),
+		]
+
+-> Here's a breakdown of the components used in the 'path()' function:
+   
+   - 'url-pattern/' : This is the URL pattern you want to match. It can include variables,
+			such as
+
+		'<int:variable_name>' or '<str:variable-name>', to capture dynamic values from the URL.
+   
+   - 'views.view_function_name': This is the reference to the view function that will be called when the 
+			URL pattern is matched.
+  
+   - 'name='url-name'': This assigns a name to the URL pattern, which can be used to refer to it in your 
+			Django templates or when generating URLs programmatically.
+
+   4) Optionally, you can include additional URL patterns by appending them to the 'urlpatterns' list.
+
+   5) In the main project's 'urls.py' file, include the URL patterns of your app by adding the following code:
+
+		
+		from django.urls import include
+		
+		urlpatterns = [
+			path('your-app/',include('your-app.urls')),
+			]
+
+		replace 'your-app' with the name of your app.
+
+-> That's it! You have created a basic Django URL configuration.
+   Remember to replace-'url-pattern/','views.view_function_name',and 'url-name' with your specific URL pattern, 
+   view function, and URL name, respectively.
+
+-> By defining URL pattern in Django, you can control how your web application responds to different URLs and 
+   navigate users to the appropriate views.
+

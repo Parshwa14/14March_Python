@@ -1,0 +1,60 @@
+Que : What is a QuerySet?
+      Write program to create a new Post object in database:
+
+-> In Django, a QuerySet is a collection of database records or 
+   objects that match a specific query. It represents a set of
+   results obtained from the database based on certain conditions
+   or filters.
+
+-> QuerySets allow you to perform various operations on the data,
+   such as filtering, sorting and retrieving specific fields. They
+   provide a convenient way to interact with the database and retrieve 
+   the data you need.
+
+-> Here's an example program to create a new 'Post' object and save it
+   to the database using Django's ORM (Object-Relational Mapping):
+
+  
+   1) Define the 'post' model:
+
+		
+	from django.db import models
+	
+	class Post(models.Model):
+	    title = models.CharField(max_length=100)
+	    content = models.TextField()
+	    created_at = models.DateTimeField(auto_now_add=True)
+
+	    
+	    def __str__(self):
+		return self.title
+
+   2) Import the 'Post' model and create a new object:
+
+	
+	from your_app.models import Post
+
+	# Create a new Post object
+	post = Post(title='First Post', content='This is the content of my first post')
+
+   3) Save the object to the database:
+
+	post.save()
+
+
+-> The 'save()' method persists the 'post' object in the database. Django automatically 
+   generates the necessary SQL queries to create a new record in the 'post' table.
+
+-> You can also chain multiple operations together using the QuerySet API. For example,
+   if you want to retrieve all posts created after a specific date, you can do the following:
+
+	
+	from django.utils import timezone
+
+	recent_posts = Post.objects.filter(created_at__gte=timezone.now() - timezone.timedelta(days=7))
+
+-> In this example, the 'filter()' method is used to retrieve posts where the 'created_at' field is greater
+   than or equal to seven days ago.
+
+-> QuerySets provide a powerful and flexible way to interact with your database in Django, allowing you to 
+   perform complex queries and retrieve the data you need for your application. 

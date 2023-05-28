@@ -1,0 +1,68 @@
+Que : Why Django should be used for web-development? 
+      Explain how you can create a project in Django?
+
+-> Django is a Popular python framework that provides a
+   robust set of tools and features for web developement.
+-> Here are some reasons why Django is often chosen for
+   web developement projects:
+
+   1) High-level and feature-rich: Django offers a high-level
+      framework that abstracts away much of the complexity
+      of web developement,allowing developers to focus on 
+      building the application logic.It providfes a wide range 
+      of built-in-features,including an ORM(object relational mapping)
+      for database management, URL routing, form handling,authentication
+      and more.
+
+    2) Scalability and reusability: Django follows the don't repeat
+       yourself(DRY) principle, which promotes code reusability and 
+       maintainability, its modular design and extensive collection of
+       reusable components, called"Apps", make it easier to build 
+       scalable and maintainable web applications.
+
+     3) Security: Django incorporates various security measures by default,
+        such as protection against common web vulerabilities like SQL injection,
+        cross-site scripting(XSS), and cross-site request forgery(CSRF).It also
+        provides user authentication and authorization mechanisms to handle user
+        management securely.
+
+      4) Database Support: Django supports multiple databases out of the box, 
+         including popular options like PostgreSQL,MySQL,SQLite and Oracle.
+         Its ORM simplifies database using python objects and queries.
+
+-> Now let's go through the basic steps to create a project in Django:
+
+	1) Install Django: Ensure that Django is installed on your system.
+	   you can use the following command to install Django using pip.
+		
+
+		pip install django
+
+	2) Create a Django Project: Open a terminal or command prompt and navigate 
+	   to the desired directory where you want to create your project.Then run 
+	   the following command:
+		
+		django-admin startproject projectname
+
+	   Replace "projectname" with the name ypu want to give to your project.
+	   This command will create a new directory with the project structure and 
+	   necessary files.
+
+	3) Start the developement server: Change to the project directory by running:
+
+	
+		cd projectname
+
+	   Then start the developement server with the following command:
+		
+		python manage.py runserver
+
+	   This will start the server on the default port 8000.
+
+	4) Access the project: Open a web browser and visit 'http://localhost:8000/'.
+	   You should see the default Django "Welcome" page if everything is set up correctly.
+
+
+
+Congratulations!! You have successfullu created a basic Django project. From here, you can start
+defining models, creating views, and designing templates to built your web application.

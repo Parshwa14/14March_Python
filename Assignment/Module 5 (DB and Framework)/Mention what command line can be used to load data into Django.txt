@@ -1,0 +1,49 @@
+Que : Mention what command line can be used to load data into Django?
+
+-> In Django, you can use the 'loaddata' command to load data from fixture
+   files into the database.Fixture files are typically in JSON,XML or YAML
+   formats and contain serialized data that can be used to populate the
+   database with initial or test data.
+
+-> To load data into Django using the command line,follow these steps:
+
+1) Ensure that you have fixture files available.Fixture files are typically
+   located in a directory named 'fixtures' within each Django app.
+
+2) Open a terminal or command prompt and navigate to the root directory of
+   your Django project
+
+3) Run the following command:
+
+
+		python manage.py loaddata fixture_file_name
+
+
+	-> Replace 'fixture_file_name' with the name of your fixture file
+ 	(including the file extension). If the fixture file is located in 
+ 	a subdirectory within the 'fixtures' directory, specify the path 
+ 	relative to the 'fixtures' directory as well.
+
+	-> For example, if your fixture file is named 'data.json' and is 
+ 	located in the 'fixtures' directory of the app named 'myapp', the 
+	command would be:
+
+		
+		python manage.py loaddata myapp/fixtures/data.json
+
+
+	-> By default, Django will look for the fixture file in the 'fixtures'
+	directory of all installed apps. If you want to specify a specific app,
+	you can prepend the app name to the fixture file name, separated by a colon(':').
+
+	-> For example:
+
+	
+		python manage.py loaddata myapp:data.json
+
+	-> Django will deserialize the fixture data and populate the corresponding 
+	database tables with the loaded data.
+
+-> The 'loaddata' command is useful for initializing your database with predefined
+   data or for loading test data during developement or testing.
+
