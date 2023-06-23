@@ -1,0 +1,135 @@
+﻿{% extends "chairman/s_index.html" %}
+{% load static %}
+
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                       
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{sid.pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 class="m-b-0"><strong>{{sid.firstname}}</strong> {{sid.lastname}}</h4>
+                        <span class="job_post">{{uid.role}}</span>
+                        <p>290,Urjanagar-2,B/H-Pratik mall,<br> Randesan,Gandhinagar-382007</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-round">Follow</button>
+                        <button class="btn btn-primary btn-round btn-simple">Message</button>
+                    </div>
+
+                </div>                    
+            </div>                               
+                         
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Account">Account</a></li>                        
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active" id="about">
+                        <p>Dr. Charlotte Deo Leon is a neurosurgeon in East Patchogue,Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. He received his medical degree from Harvard Medical School and has been in practice for 21 years. He is one of 5 doctors at Brookhaven Memorial Hospital Medical Center and one of 9 at Southside Hospital who specialize in Neurological Surgery.</p>
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p><strong>Qualification:</strong> Mechanical Engineer (2015-2019) </p>
+                            </li>
+                           
+                            <li>
+                                <p><strong>Occupation:</strong> Python Developer</p>
+                            </li>
+                           
+                        </ul>
+                        {% comment %} <h6>Specialties</h6>
+                        <hr>
+                        <ul class="list-unstyled specialties">
+                            <li>Breast Surgery</li>
+                            <li>Colorectal Surgery</li>
+                            <li>Endocrinology</li>
+                            <li>Cardiology</li>
+                            <li>Cosmetic Dermatology</li>
+                            <li>Mole checks and monitoring</li>
+                            <li>Clinical Neurophysiology</li>
+                        </ul> {% endcomment %}
+                    </div>
+                    <div class="tab-pane body" id="Account">
+                        <form action = "{% url 'change-password' %}" method = "POST">
+                            {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="email" value="{{uid.email}}" readonly disabled >
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Current Password" name="currentpassword">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="New Password" name="newpassword">
+                                </div> 
+                                <input type ="submit" class="btn btn-info btn-round" value="Save changes">
+                        </form>
+                        <hr>
+                        <form action="{% url 'update-chairman-profile' %}" method="POST" enctype = "multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name" name ="firstname" value = "{{sid.firstname}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name" name ="lastname" value = "{{sid.lastname}}">
+                                </div>
+                            </div>                                    
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="House No" name = "house_no" value = "{{sid.house_no}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Contact" name = "contact_no" value = "{{sid.contact_no}}">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type = "file" class="form-control" name = "mypicture" >
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <input type ="submit" class="btn btn-primary btn-round" value ="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                    </div>                        
+                </div>
+            </div>
+                        
+        </div>
+    </div>
+
+            </div>
+        </section>
+
+        {% endblock %}
