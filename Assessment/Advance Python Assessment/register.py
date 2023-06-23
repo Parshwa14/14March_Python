@@ -56,6 +56,13 @@ def sbmt():
         db.commit()
         db.close()
         messagebox.showinfo("Success","Data Successfully Written")
+        
+        name_e.delete(0,END)
+        contact_e.delete(0,END)
+        email_e.delete(0,END)
+        Gender.set(0)        
+        city.set(0)
+        state.set(0)
 
 # adding all the form data to the database
 
@@ -97,7 +104,7 @@ email_e.place(x=150,y=158)
 radio_btn = Label(scr,text="Gender*",font=("Ariel"))
 radio_btn.place(x=35,y=205)
 
-Gender.set(0)
+Gender.set(1)
 radio_btn1 = Radiobutton(scr,text="Male",variable = Gender,font="Tahoma",value='Male')
 radio_btn1.place(x=140,y=205)
 
@@ -109,13 +116,13 @@ radio_btn2.place(x=230,y=205)
 dd_city = Label(scr,text="City*",font="Ariel")
 dd_city.place(x=35,y=255)
 
-city = ttk.Combobox(state="readonly",values=["Gandhinagar","Ahmedabad","Rajkot","Surat","Vadodara"])
+city = ttk.Combobox(state="readonly",values=["Gandhinagar","Ahmedabad","Rajkot","Surat","Vadodara","Srinagar"])
 city.place(x=150,y=257)
 
 dd_state = Label(scr,text="State*",font="Ariel")
 dd_state.place(x=35,y=305)
 
-state = ttk.Combobox(state="readonly",values=["Gujarat","Maharashtra","Delhi","Rajasthan","Bangalore"])
+state = ttk.Combobox(state="readonly",values=["Gujarat","Maharashtra","Delhi","Rajasthan","Bangalore","Jammu-Kashmir"])
 state.place(x=150,y=307)
 
 # button display
