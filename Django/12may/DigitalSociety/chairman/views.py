@@ -396,12 +396,13 @@ def add_notice(request):
             cid = Chairman.objects.get(user_id = uid)
 
         if request.POST:
+            header = request.POST['header']
             medianame = request.POST['medianame']
             mediafile = request.POST['mediafile']
             if medianame == "image":
-                eid = Notice.objects.create(user_id=uid,media_type = medianame,pic = mediafile)
+                nid = Notice.objects.create(user_id=uid,media_type = medianame,pic = mediafile)
             else:
-                eid = Notice.objects.create(user_id = uid,media_type = medianame,videofile = mediafile)
+                nid = Notice.objects.create(user_id = uid,media_type = medianame,videofile = mediafile)
             
             context = {
                 'uid':uid,
@@ -420,3 +421,18 @@ def add_notice(request):
             return render(request,"chairman/add_notice.html",context)
     else:
         return render(request,"chairman/login.html")        
+    
+    
+    
+    
+    
+def all_notices(request):
+    if "email" in request.session:
+        uid = User.objects.get(email = request.session['email'])
+        if uid.role == "chairman":
+            cid = Chairman.objects.get(user_id = uid)
+            
+            return render(request,"chairman/all-notices.html")
+        
+    else:
+        return render(request,"chairman/login.html")

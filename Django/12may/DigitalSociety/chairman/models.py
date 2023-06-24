@@ -38,6 +38,7 @@ class EventGallery(models.Model):
     videofile = models.FileField(upload_to='videos/',null=True,verbose_name="")
     pic = models.FileField(upload_to="media/images",null=True,blank=True)
     
+
 class Notice(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     media_type = models.CharField(max_length=30)

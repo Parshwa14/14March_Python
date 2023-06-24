@@ -34,5 +34,6 @@ urlpatterns = [
     path('all-member/',views.all_member,name='all-member'),
     path('sall-member/',views.sall_member,name='sall-member'),
     path('add-notice',views.add_notice,name='add-notice'),
+    path('all-notices/',views.all_notices,name='all-notices'),
 
 ]
