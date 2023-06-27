@@ -8,6 +8,7 @@ def home(request):
         uid = User.objects.get(email = request.session["email"])
         scount = SocietyMember.objects.all().count()
         gcount = EventGallery.objects.all().count()
+        ncount = Notice.objects.all().count()
         if uid.role == "chairman":
             cid = Chairman.objects.get(user_id=uid)
             context = {
@@ -15,6 +16,7 @@ def home(request):
                 "cid":cid,
                 "scount":scount,
                 "gcount":gcount,
+                "ncount":ncount,
             }
             return render(request,"chairman/index.html",context)
 
@@ -25,6 +27,8 @@ def home(request):
                 "sid":sid,
                 "scount":scount,
                 "gcount":gcount,
+                "ncount":ncount,
+
                 }
             return render(request,"chairman/s_index.html",context)
     else:
@@ -396,14 +400,15 @@ def add_notice(request):
             cid = Chairman.objects.get(user_id = uid)
 
         if request.POST:
-            header = request.POST['header']
             medianame = request.POST['medianame']
-            mediafile = request.POST['mediafile']
-            if medianame == "image":
-                nid = Notice.objects.create(user_id=uid,media_type = medianame,pic = mediafile)
-            else:
-                nid = Notice.objects.create(user_id = uid,media_type = medianame,videofile = mediafile)
+            mediafile = request.FILES['mediafile']
             
+            if medianame == "image":
+                
+                nid = Notice.objects.create(user_id = uid,media_type = medianame, pic = mediafile)
+            else:
+                nid = Notice.objects.create(user_id = uid,media_type = medianame, videofile = mediafile)
+                
             context = {
                 'uid':uid,
                 'cid':cid,
@@ -431,8 +436,25 @@ def all_notices(request):
         uid = User.objects.get(email = request.session['email'])
         if uid.role == "chairman":
             cid = Chairman.objects.get(user_id = uid)
-            
-            return render(request,"chairman/all-notices.html")
+            notice_all = Notice.objects.filter(media_type = "image")
+            context = {
+                'uid': uid,
+                'cid': cid,
+                'notice_all' : notice_all,
+            }
+            return render(request,"chairman/all-notices.html",context)
         
+        else:
+            sid = SocietyMember.objects.get(user_id = uid)
+            notice_all = Notice.objects.filter(media_type = "image")
+            context = {
+                'uid': uid,
+                'sid': sid,
+                'notice_all' : notice_all,
+            }
+            return render(request,"chairman/all-notices.html",context)
+    
+    
     else:
         return render(request,"chairman/login.html")
+    

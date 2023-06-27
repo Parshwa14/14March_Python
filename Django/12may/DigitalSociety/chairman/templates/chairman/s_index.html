@@ -83,7 +83,7 @@
                     <li class="">
                         <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi -comments"></i><span>Notice</span></a>
                         <ul class="ml-menu">
-                            <li class=""><a href="..\doctor\doctors.html">All Notice</a></li>
+                            <li class=""><a href="{% url 'all-notices' %}">All Notice</a></li>
                     </ul>
                     
                 
@@ -250,12 +250,11 @@
     <div class="col-lg-4 col-md-12">
         <div class="card">
             <div class="body">
-                <h3 class="number count-to m-b-0" data-from="0" data-to="284" data-speed="2500" data-fresh-interval="1000">284 <i class="zmdi zmdi-trending-up float-right"></i></h3>
-                <p class="text-muted">Well Smiley Faces <i class="zmdi zmdi-mood"></i></p>
+                <h3 class="number count-to m-b-0" data-from="0" data-to={{ncount}} data-speed="2500" data-fresh-interval="1000">{{ncount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p class="text-muted">Total Notice </p>
                 <div class="progress">
                     <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"></div>
                 </div>
-                <small>Change 50%</small>
             </div>
         </div>
     </div>

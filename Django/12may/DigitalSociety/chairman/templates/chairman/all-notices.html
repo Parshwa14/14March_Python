@@ -25,16 +25,14 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="header">
-                <h2><strong>Gallery</strong></h2>
+                <h2><strong>Notices</strong></h2>
                 
             </div>
             <div class="body">
                 <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
-                    {% for i in img_all %}
+                    {% for i in notice_all %}
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="..\assets\images\image-gallery\1.jpg"> <img class="img-fluid img-thumbnail" src="{{i.pic.url}}" alt=""> </a> </div>
 
-                    
-                        <a href="{% url 'delete-image' ik=i.id %}" class="mega-menu" data-close="true"><i class="zmdi zmdi-delete"></i></a>
     
                     {% endfor %}
                 </div>
