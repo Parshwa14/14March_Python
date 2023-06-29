@@ -443,8 +443,12 @@ def all_notices(request):
                 'notice_all' : notice_all,
             }
             return render(request,"chairman/all-notices.html",context)
-        
-        else:
+    
+    
+def sall_notices(request):
+    if "email" in request.session:
+        uid = User.objects.get(email = request.session['email'])
+        if uid.role == "SocietyMember":    
             sid = SocietyMember.objects.get(user_id = uid)
             notice_all = Notice.objects.filter(media_type = "image")
             context = {
@@ -452,9 +456,6 @@ def all_notices(request):
                 'sid': sid,
                 'notice_all' : notice_all,
             }
-            return render(request,"chairman/all-notices.html",context)
+            return render(request,"chairman/sall-notices.html",context)
     
-    
-    else:
-        return render(request,"chairman/login.html")
     

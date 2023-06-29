@@ -35,5 +35,7 @@ urlpatterns = [
     path('sall-member/',views.sall_member,name='sall-member'),
     path('add-notice',views.add_notice,name='add-notice'),
     path('all-notices/',views.all_notices,name='all-notices'),
+    path('sall-notices/',views.sall_notices,name='sall-notices'),
+
 
 ]
