@@ -11,7 +11,7 @@ class User(models.Model):
         return self.email    
     
 
-class Chairman(models.Model):
+class Teacher(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30) 
@@ -19,7 +19,7 @@ class Chairman(models.Model):
     contact_no = models.CharField(max_length=30)
     pic = models.FileField(upload_to="media/images",default="media/images/goku.jpg")
     
-class SocietyMember(models.Model):
+class Student(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)

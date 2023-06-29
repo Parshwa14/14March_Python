@@ -6,11 +6,11 @@ from .models import *
 def home(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
-        scount = SocietyMember.objects.all().count()
+        scount = Student.objects.all().count()
         gcount = EventGallery.objects.all().count()
         ncount = Notice.objects.all().count()
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id=uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id=uid)
             context = {
                 "uid":uid,
                 "cid":cid,
@@ -18,10 +18,10 @@ def home(request):
                 "gcount":gcount,
                 "ncount":ncount,
             }
-            return render(request,"chairman/index.html",context)
+            return render(request,"imsapp/index.html",context)
 
         else:
-            sid = SocietyMember.objects.get(user_id = uid)
+            sid = Student.objects.get(user_id = uid)
             context={
                 "uid":uid,
                 "sid":sid,
@@ -30,29 +30,29 @@ def home(request):
                 "ncount":ncount,
 
                 }
-            return render(request,"chairman/s_index.html",context)
+            return render(request,"imsapp/s_index.html",context)
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 def login(request):
     
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id=uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id=uid)
             context = {
                 "uid":uid,
                 "cid":cid,
             }
-            return render(request,"chairman/index.html",context)
+            return render(request,"imsapp/index.html",context)
         else:
-            sid = SocietyMember.objects.get(user_id=uid)
+            sid = Student.objects.get(user_id=uid)
             context={
                 "uid":uid,
                 "sid":sid,
             }
-            return render(request,"chairman/s_index.html",context)
+            return render(request,"imsapp/s_index.html",context)
             
     else:                                       
         if request.POST:
@@ -65,8 +65,8 @@ def login(request):
                 
                 if uid.password == p_password:
                     
-                    if uid.role == "chairman":
-                        cid = Chairman.objects.get(user_id = uid)
+                    if uid.role == "Teacher":
+                        cid = Teacher.objects.get(user_id = uid)
                         print("=======>First name = ",cid.firstname)
                         
                         request.session ['email'] = uid.email
@@ -74,22 +74,22 @@ def login(request):
                             "uid":uid,
                             "cid":cid,
                         }
-                        return render(request,"chairman/index.html",context)
+                        return render(request,"imsapp/index.html",context)
                     else:
-                        sid = SocietyMember.objects.get(user_id = uid)
+                        sid = Student.objects.get(user_id = uid)
                         request.session ['email'] = uid.email
                         context={
                             "uid":uid,
                             "sid":sid,
                         }
-                        return render(request,"chairman/s_index.html",context)
+                        return render(request,"imsapp/s_index.html",context)
                         
                 else:
                     msg = "INVALID PASSWORD"
                     context ={
                         "msg" : msg,
                     }
-                    return render(request,"chairman/login.html",context)
+                    return render(request,"imsapp/login.html",context)
                     
                         
             except:
@@ -97,37 +97,37 @@ def login(request):
                 context = {
                     "msg" : msg
                 }
-                return render(request,"chairman/login.html",context)
+                return render(request,"imsapp/login.html",context)
         else:
             print("=====> Login page refreshed")
-            return render(request,"chairman/login.html")
+            return render(request,"imsapp/login.html")
 
 def logout(request):
     if "email" in request.session:
         del request.session["email"]
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 def profile(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id=uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id=uid)
             context = {
                 "uid":uid,
                 "cid":cid,
             }
-            return render(request,"chairman/profile.html",context)
+            return render(request,"imsapp/profile.html",context)
     
         else:
-            sid = SocietyMember.objects.get(user_id=uid)
+            sid = Student.objects.get(user_id=uid)
             context = {
                     "uid":uid,
                     "sid":sid,
                 }
-            return render(request,"chairman/s_profile.html",context)    
+            return render(request,"imsapp/s_profile.html",context)    
         
 def change_password(request):
     if "email" in request.session:
@@ -139,21 +139,21 @@ def change_password(request):
             uid.password = npassword
             uid.save()  # new password updated 
             del request.session['email']
-            return render(request,"chairman/login.html")
+            return render(request,"imsapp/login.html")
         
         else:
             pass
 
         
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
     
-def update_chairman_profile(request):
+def update_teacher_profile(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             if request.POST:
                 cid.firstname = request.POST["firstname"]
                 cid.lastname = request.POST["lastname"]
@@ -169,20 +169,20 @@ def update_chairman_profile(request):
                     'cid' : cid
                     
                 }
-                return render(request,"chairman/profile.html",context)
+                return render(request,"imsapp/profile.html",context)
         else:
             pass
     else:
-        return render(request,"chairman/login.html")
-    return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
+    return render(request,"imsapp/login.html")
 
 
 def add_media(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
 
         if request.POST:
             medianame = request.POST['medianame']
@@ -200,7 +200,7 @@ def add_media(request):
                 'cid' : cid,
                 'msg' :"Media Uploaded Successfully"                    
                 }
-            return render(request,"chairman/add_media.html",context)
+            return render(request,"imsapp/add_media.html",context)
         
         else:
             
@@ -208,75 +208,75 @@ def add_media(request):
                 'uid' : uid,
                 'cid' : cid,
                 }
-            return render(request,"chairman/add_media.html",context)
+            return render(request,"imsapp/add_media.html",context)
         
         
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 def view_image_gallery(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             img_all = EventGallery.objects.filter(media_type = "image")
             context = {
                 'uid': uid,
                 'cid': cid,
                 'img_all' : img_all,
             }
-            return render(request,"chairman/image-gallery.html",context)
+            return render(request,"imsapp/image-gallery.html",context)
 
         else:
-            sid = SocietyMember.objects.get(user_id = uid)
+            sid = Student.objects.get(user_id = uid)
             img_all = EventGallery.objects.filter(media_type = "image")
             context = {
                 'uid': uid,
                 'sid': sid,
                 'img_all' : img_all,
             }
-            return render(request,"chairman/simage-gallery.html",context)
+            return render(request,"imsapp/simage-gallery.html",context)
             
            
 
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 def view_video_gallery(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             video_all = EventGallery.objects.filter(media_type = "video")
             context = {
                 'uid': uid,
                 'cid': cid,
                 'video_all' : video_all,
             }
-            return render(request,"chairman/video-gallery.html",context)
+            return render(request,"imsapp/video-gallery.html",context)
 
         else:
-            sid = SocietyMember.objects.get(user_id = uid)
+            sid = Student.objects.get(user_id = uid)
             video_all = EventGallery.objects.filter(media_type = "video")
             context = {
                 'uid': uid,
                 'sid': sid,
                 'video_all' : video_all,
             }
-            return render(request,"chairman/svideo-gallery.html",context)
+            return render(request,"imsapp/svideo-gallery.html",context)
 
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 def delete_video(request,pk):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
     
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             videoid = EventGallery.objects.get(id = pk)
             videoid.delete()                           
             video_all = EventGallery.objects.filter(media_type = "video")
@@ -286,14 +286,14 @@ def delete_video(request,pk):
                 'cid': cid,
                 'video_all' : video_all,
             }
-            return render(request,"chairman/video-gallery.html",context)
+            return render(request,"imsapp/video-gallery.html",context)
 
 def delete_image(request,ik):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             imageid = EventGallery.objects.get(id = ik)
             imageid.delete()
             img_all = EventGallery.objects.filter(media_type = "image")
@@ -303,22 +303,22 @@ def delete_image(request,ik):
                 'cid': cid,
                 'img_all' : img_all,
             }
-            return render(request,"chairman/image-gallery.html",context)
+            return render(request,"imsapp/image-gallery.html",context)
         
 def add_member(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             
             if request.POST:
                 muserid = User.objects.create(email = request.POST['email'],
                                               password = request.POST['password'],
-                                              role = "SocietyMember")
+                                              role = "Student")
                 
                 if "pic" in request.FILES:
-                    sid = SocietyMember.objects.create(user_id=muserid,
+                    sid = Student.objects.create(user_id=muserid,
                                                     firstname = request.POST['firstname'],
                                                     lastname = request.POST['lastname'],
                                                     house_no = request.POST['house_no'],
@@ -331,7 +331,7 @@ def add_member(request):
                                                     pic = request.FILES['pic'],
                                                     )
                 else:
-                    sid = SocietyMember.objects.create(user_id=muserid,
+                    sid = Student.objects.create(user_id=muserid,
                                                     firstname = request.POST['firstname'],
                                                     lastname = request.POST['lastname'],
                                                     house_no = request.POST['house_no'],
@@ -350,16 +350,16 @@ def add_member(request):
                     'cid': cid,
                     'msg': msg,
                 }
-                return render(request,"chairman/add-member.html",context)
+                return render(request,"imsapp/add-member.html",context)
             else:
                 context = {
                 'uid': uid,
                 'cid': cid,
                 }
-                return render(request,"chairman/add-member.html",context)    
+                return render(request,"imsapp/add-member.html",context)    
             
     else:
-        return render(request,"chairman/login.html")
+        return render(request,"imsapp/login.html")
 
 
 
@@ -367,37 +367,37 @@ def all_member(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
-            sall = SocietyMember.objects.all()
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
+            sall = Student.objects.all()
             context = {
                 'uid': uid,
                 'cid': cid,
                 'sall':sall,
             }
-            return render(request,"chairman/members.html",context)    
+            return render(request,"imsapp/members.html",context)    
         
 def sall_member(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "SocietyMember":
-            sid = SocietyMember.objects.get(user_id = uid)
-            sall = SocietyMember.objects.all().exclude(user_id=uid)
+        if uid.role == "Student":
+            sid = Student.objects.get(user_id = uid)
+            sall = Student.objects.all().exclude(user_id=uid)
             context = {
                 'uid': uid,
                 'sid':sid,
                 'sall':sall,
             }
-            return render(request,"chairman/s_members.html",context)    
+            return render(request,"imsapp/s_members.html",context)    
         
         
 def add_notice(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
 
         if request.POST:
             medianame = request.POST['medianame']
@@ -415,7 +415,7 @@ def add_notice(request):
                 'msg': "Notice Uploaded Successfully"
             }
             
-            return render(request,"chairman/add_notice.html",context)
+            return render(request,"imsapp/add_notice.html",context)
         
         else:
             context = {
@@ -423,9 +423,9 @@ def add_notice(request):
                 'cid':cid,
             }
             
-            return render(request,"chairman/add_notice.html",context)
+            return render(request,"imsapp/add_notice.html",context)
     else:
-        return render(request,"chairman/login.html")        
+        return render(request,"imsapp/login.html")        
     
     
     
@@ -434,28 +434,28 @@ def add_notice(request):
 def all_notices(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
-        if uid.role == "chairman":
-            cid = Chairman.objects.get(user_id = uid)
+        if uid.role == "Teacher":
+            cid = Teacher.objects.get(user_id = uid)
             notice_all = Notice.objects.filter(media_type = "image")
             context = {
                 'uid': uid,
                 'cid': cid,
                 'notice_all' : notice_all,
             }
-            return render(request,"chairman/all-notices.html",context)
+            return render(request,"imsapp/all-notices.html",context)
     
     
 def sall_notices(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session['email'])
-        if uid.role == "SocietyMember":    
-            sid = SocietyMember.objects.get(user_id = uid)
+        if uid.role == "Student":    
+            sid = Student.objects.get(user_id = uid)
             notice_all = Notice.objects.filter(media_type = "image")
             context = {
                 'uid': uid,
                 'sid': sid,
                 'notice_all' : notice_all,
             }
-            return render(request,"chairman/sall-notices.html",context)
+            return render(request,"imsapp/sall-notices.html",context)
     
     
