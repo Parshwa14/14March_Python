@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import timezone
 
 # Create your models here.
 class User(models.Model):
@@ -15,31 +16,29 @@ class Teacher(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30) 
-    house_no = models.CharField(max_length=10)   
-    contact_no = models.CharField(max_length=30)
-    pic = models.FileField(upload_to="media/images",default="media/images/goku.jpg")
+    # date_of_birth =  models.DateTimeField(default=timezone.now)   
+    # date_of_joining =  models.DateTimeField(default=timezone.now)
+    pic = models.FileField(upload_to="media/images",default="media/images/user.png")
     
 class Student(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
-    house_no = models.CharField(max_length=10)
-    contact_no = models.CharField(max_length=30)
-    blood_group = models.CharField(max_length=5)
-    job_description = models.CharField(max_length=30)
-    job_address = models.TextField()
-    no_of_familymembers = models.CharField(max_length=30)
-    vehicle_details = models.CharField(max_length=60)
-    pic = models.FileField(upload_to="media/images",default="media/images/goku.jpg")
+    address = models.TextField(default="my address")
+    pic = models.FileField(upload_to="media/images",default="media/images/user.png")
     
-class EventGallery(models.Model):
+class Events(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
-    media_type = models.CharField(max_length=30)
-    videofile = models.FileField(upload_to='videos/',null=True,verbose_name="")
-    pic = models.FileField(upload_to="media/images",null=True,blank=True)
+    event_name = models.CharField(max_length=50, default="This is event")
+    pic = models.FileField(upload_to="media/images",default="media/images/ds.png")
     
-
-class Notice(models.Model):
+class Clubs(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
-    media_type = models.CharField(max_length=30)
-    pic = models.FileField(upload_to="media/images",null=True,blank=True)
+    club_name = models.CharField(max_length=30)
+    club_activity = models.TextField()
+    club_pic = models.FileField(upload_to="media/images",default="media/images/ds.png")
+    
+class Library(models.Model):
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    book_name=models.CharField(max_length=50)
+    author = models.CharField(max_length=50)

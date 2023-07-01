@@ -1,0 +1,143 @@
+﻿{% load static %}
+<html lang="en">
+    <head>
+        <script>
+            function myval()
+            {
+                var eml = document.getElementById("email").value;
+                var pwd = document.getElementById("password").value;
+                console.log(eml)
+                console.log(pwd)
+                function check()
+                {
+                    var box = document.getElementById("msgdiv");
+                    if(box.style.display=="none")
+                    {
+                        box.style.display="block";
+                    }
+                    else 
+                    {
+                        box.style.display="none";
+                    }
+                }
+                if ((eml.length<5) && (pwd.length<5))
+                {
+                    document.getElementById("msg").innerHTML = "Email and Password Must be More Than 5 Characters";
+                    check();
+                    return false;
+                }
+            }
+        </script>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="csrf-token" content="iL8hUXsdXy71MbOZjq4fWUv4KGPZnJ7k17P7RClL">
+        <link rel="icon" href="https://thememakker.com/templates/oreo/hospital/laravel/public/favicon.ico" type="image/x-icon"> <!-- Favicon-->
+        <title>Register</title>
+        <meta name="description" content="Oero Laravel">
+        <meta name="author" content="Oero Laravel">
+        
+        
+        
+        <link rel="stylesheet" href="{% static 'imsapp\assets\plugins\bootstrap\css\bootstrap.min.css' %}">
+        
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{% static 'imsapp\assets\css\main.css' %}">
+        <link rel="stylesheet" href="{% static 'imsapp\assets\css\authentication.css' %}">
+        <link rel="stylesheet" href="{% static 'imsapp\assets\css\color_skins.css' %}">
+
+        
+    </head>
+    
+    
+        <body class="theme-cyan authentication sidebar-collapse">
+
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
+            <div class="container">        
+                <div class="navbar-translate n_logo">
+                    <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank">Institute Management System</a>
+                    <button class="navbar-toggler" type="button">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                    </button>
+                </div>
+              
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <div class="page-header-image" style="background-image:url('{% static 'imsapp\assets\images\bgreg.png' %}')"></div>
+
+            <div class="container">
+    <div class="col-md-12 content-center">
+        <div class="card-plain">
+            <div id="msgdiv" style = "display : none;">
+                <p id = "msg" style="color: red;"></p>
+            </div>
+            <form class="form" method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                <div class="header">
+                    {% if msg %}
+                    <div class="alert alert-warning" role="alert">
+                        {{msg}}
+                    </div>
+                    {% endif %}
+                    {% if msg %}
+                    <div class="alert alert-success" role="alert">
+                        {{msg}}
+                    </div>
+                    {% endif %}
+                    <div class="logo-container">
+                        <img src="{% static 'imsapp\assets\images\logoos.png' %}" alt="">
+                    </div>
+                    <h5>Register Yourself Here</h5>
+                </div>
+                <div class="content">                                                
+                    
+                    <div class="input-group">
+                        <input type="text" class="form-control" name = "email" id = "email" onblur="myval()" placeholder="Enter Email">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-email"></i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_category"></label>
+                        <select class="form-control"  name="category" id="id_category" placeholder="-----select-----" required>
+                        <option value = "Teacher">Teacher</option>
+                        <option value = "Student">Student</option>                    </select>
+                    </div>                       
+                </div>
+                
+                    <div class="input-group">
+                        <input type="password" name = "password" id ="password" onblur="myval()" placeholder="Password" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-lock"></i>
+                        </span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name = "cpassword" id ="cpassword" onblur="myval()" placeholder="Confirm Password" class="form-control">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-lock"></i>
+                        </span>
+                    </div> 
+                <div class="footer text-center">
+                    <input type="submit"  value = "SignUp" class="btn btn-primary btn-round btn-lg btn-block waves-effect waves-light"/>
+                    <h5><a class="link" href="{% url 'login' %}">You already have a Registered?</a></h5>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+            
+        </div>
+
+        <!-- Scripts -->
+                <script src="..\assets\bundles\libscripts.bundle.js"></script>    
+        <script src="..\assets\bundles\vendorscripts.bundle.js"></script>
+                
+    </body>
+</html>

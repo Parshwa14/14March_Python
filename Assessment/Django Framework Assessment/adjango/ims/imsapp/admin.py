@@ -6,5 +6,6 @@ from .models import *
 admin.site.register(User)
 admin.site.register(Teacher)
 admin.site.register(Student)
-admin.site.register(EventGallery)
-admin.site.register(Notice)
+admin.site.register(Events)
+admin.site.register(Clubs)
+admin.site.register(Library)

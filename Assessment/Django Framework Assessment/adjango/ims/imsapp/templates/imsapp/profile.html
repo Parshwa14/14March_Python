@@ -25,9 +25,9 @@
         <div class="col-lg-4 col-md-12">
             <div class="card profile-header">
                 <div class="body text-center">
-                    <div class="profile-image"> <img src="{{cid.pic.url}}" alt=""> </div>
+                    <div class="profile-image"> <img src="{{tid.pic.url}}" alt=""> </div>
                     <div>
-                        <h4 class="m-b-0"><strong>{{cid.firstname}}</strong> {{cid.lastname}}</h4>
+                        <h4 class="m-b-0"><strong>{{tid.firstname}}</strong> {{tid.lastname}}</h4>
                         <span class="job_post">{{uid.role}}</span>
                         <p>290,Urjanagar-2,B/H-Pratik mall,<br> Randesan,Gandhinagar-382007</p>
                     </div>
@@ -75,6 +75,11 @@
                     <div class="tab-pane body" id="Account">
                         <form action = "{% url 'change-password' %}" method = "POST">
                             {% csrf_token %}
+                            {% if msg %}
+                                <div class="alert alert-warning" role="alert">
+                                    {{msg}}
+                                </div>
+                            {% endif %}
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="email" value="{{uid.email}}" readonly disabled >
                                 </div>
@@ -92,28 +97,19 @@
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name" name ="firstname" value = "{{cid.firstname}}">
+                                    <input type="text" class="form-control" placeholder="First Name" name ="firstname" value = "{{tid.firstname}}">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name" name ="lastname" value = "{{cid.lastname}}">
+                                    <input type="text" class="form-control" placeholder="Last Name" name ="lastname" value = "{{tid.lastname}}">
                                 </div>
                             </div>                                    
-                            <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="House No" name = "house_no" value = "{{cid.house_no}}">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Contact" name = "contact_no" value = "{{cid.contact_no}}">
-                                </div>
-                            </div>
+                           
 
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                    <input type = "file" class="form-control" name = "mypicture" >
+                                    <input type = "file" class="form-control" name = "pic" >
                                 </div>
                             </div>
                             

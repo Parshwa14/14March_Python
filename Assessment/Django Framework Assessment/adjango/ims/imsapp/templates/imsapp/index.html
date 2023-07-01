@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="csrf-token" content="iL8hUXsdXy71MbOZjq4fWUv4KGPZnJ7k17P7RClL">
         <link rel="icon" href="https://thememakker.com/templates/oreo/hospital/laravel/public/favicon.ico" type="image/x-icon"> <!-- Favicon-->
-        <title>Dashboard - Digital Society</title>
+        <title>Dashboard - Institute Management System</title>
         <meta name="description" content="Oero Laravel">
         <meta name="author" content="Oero Laravel">
                 
@@ -34,7 +34,7 @@
         <li>
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html"><img src="{% static 'imsapp\assets\images\logoos.png' %}" width="30" alt="Oreo"><span class="m-l-10">Digital Society</span></a>
+                <a class="navbar-brand" ><img src="{% static 'imsapp\assets\images\logoos.png' %}" width="30" alt="Oreo"><span class="m-l-10">Institute Management System</span></a>
             </div>
         </li>
         <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
@@ -60,9 +60,9 @@
                 <ul class="list">
                     <li>
                         <div class="user-info">
-                            <div class="image"><a href="..\doctor\profile.html"><img src="{{cid.pic.url}}" alt="User"></a></div>
+                            <div class="image"><img src="{{tid.pic.url}}" alt="User"></a></div>
                             <div class="detail">
-                                <h4>{{cid.firstname}} {{cid.lastname}}</h4>
+                                <h4>{{tid.firstname}} {{tid.lastname}}</h4>
                                 <small> {{uid.email}}</small><br>                        
                                 <small> {{uid.role}}</small>                        
 
@@ -70,32 +70,16 @@
                         </div>
                     </li>
                     
-                    <li class="active open"><a href="{% url 'home' %}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>            
-                    <li class=""><a href="{% url 'profile' %}"><i class="zmdi zmdi-mood"></i><span>My Profile</span></a></li>            
-
-                    <li class="">
-                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>Society Member</span></a>
-                        <ul class="ml-menu">
-                            <li class=""><a href="{% url 'all-member' %}">All Members</a></li>
-                            <li class=""><a href="{% url 'add-member' %}">Add Member</a></li>                       
-                    </ul>
-                    
-
-                    <li class="">
-                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi -comments"></i><span>Notice</span></a>
-                        <ul class="ml-menu">
-                            <li class=""><a href="{% url 'all-notices' %}">All Notice</a></li>
-                            <li class=""><a href="{% url 'add-notice' %}">Add Notice</a></li>                       
-                    </ul>
-                    
-                
-                    <li class="">
-                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi -videocam"></i><span>Gallery</span></a>
-                        <ul class="ml-menu">
-                            <li class=""><a href="{% url 'add-media' %}">Add Media</a></li>                       
-                            <li class=""><a href="{% url 'view-video-gallery' %}">All Videos</a></li>
-                            <li class=""><a href="{% url 'view-image-gallery' %}">All Photos</a></li>                       
-                    </ul>
+                    <li class="active open"><h6>Dashboard</h6></li>
+                    <li class=""><a href="{% url 'profile' %}"><span>My Profile</span></a></li>                        
+                    <li class=""><a href="{% url 'student' %}"><span>Student</span></a></li>            
+                    <li class=""><a href="{% url 'teacher' %}"><span>Teacher</span></a></li>                       
+                    <li class=""><a href="{% url 'profile' %}"><span>Department</span></a></li>
+                    <li class=""><a href="{% url 'profile' %}"><span>Campus</span></a></li>
+                    <li class=""><a href="{% url 'clubs' %}"><span>Clubs</span></a></li>
+                    <li class=""><a href="{% url 'library' %}"><span>Library</span></a></li>
+                    <li class=""><a href="{% url 'events' %}"><span>Events</span></a></li>
+                       
                     
                 
                 </ul>
@@ -212,14 +196,14 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-12">
-                        <h2>Dashboard <small class="text-muted">Welcome to Digital Society Application</small></h2>
+                        <h2>Dashboard <small class="text-muted">Welcome to Institute Management System Application</small></h2>
                     </div>            
                         
                         
                     <div class="col-lg-7 col-md-7 col-sm-12 text-right">
                         
                         <ul class="breadcrumb float-md-right">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="zmdi zmdi-home"></i> Institute Management System</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
                     </div>
@@ -228,33 +212,44 @@
             </div>
             <div class="container-fluid">                
                 <div class="row clearfix">
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-3 col-md-12">
         <div class="card">
             <div class="body">
-                <h3 class="number count-to m-b-0" data-from="0" data-to="{{scount}}" data-speed="2500" data-fresh-interval="700">{{scount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
-                <p class="text-muted">Total Society Members</p>
+                <h3 class="number count-to m-b-0" data-from="0" data-to="{{scount}}" data-speed="700" data-fresh-interval="700">{{scount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p class="text-muted">Students</p>
                 <div class="progress">
                     <div class="progress-bar l-blush" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-3 col-md-12">
         <div class="card">
             <div class="body">
-                <h3 class="number count-to m-b-0" data-from="0" data-to="{{gcount}}" data-speed="2500" data-fresh-interval="1000">{{gcount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
-                <p class="text-muted">Total Images & Videos</p>
+                <h3 class="number count-to m-b-0" data-from="0" data-to="{{tcount}}" data-speed="700" data-fresh-interval="1000">{{tcount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p class="text-muted">Teachers</p>
+                <div class="progress">
+                    <div class="progress-bar l-lightblue" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-12">
+        <div class="card">
+            <div class="body">
+                <h3 class="number count-to m-b-0" data-from="0" data-to="{{ccount}}" data-speed="700" data-fresh-interval="1000">{{ccount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p class="text-muted">Clubs</p>
                 <div class="progress">
                     <div class="progress-bar l-green" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-12">
+    <div class="col-lg-3 col-md-12">
         <div class="card">
             <div class="body">
-                <h3 class="number count-to m-b-0" data-from="0" data-to={{ncount}} data-speed="2500" data-fresh-interval="1000">{{ncount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
-                <p class="text-muted">Total Notice </p>
+                <h3 class="number count-to m-b-0" data-from="0" data-to={{bcount}} data-speed="700" data-fresh-interval="1000">{{bcount}} <i class="zmdi zmdi-trending-up float-right"></i></h3>
+                <p class="text-muted">Books </p>
                 <div class="progress">
                     <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"></div>
                 </div>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="csrf-token" content="iL8hUXsdXy71MbOZjq4fWUv4KGPZnJ7k17P7RClL">
         <link rel="icon" href="https://thememakker.com/templates/oreo/hospital/laravel/public/favicon.ico" type="image/x-icon"> <!-- Favicon-->
-        <title>Login - Digital Society</title>
+        <title>Login - Institute Management System</title>
         <meta name="description" content="Oero Laravel">
         <meta name="author" content="Oero Laravel">
         
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
             <div class="container">        
                 <div class="navbar-translate n_logo">
-                    <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank"><img src="{% static 'imsapp\assets\images\logoos.png' %}" width="30" alt="Oreo"><span class="m-l-10">Digital Society</a>
+                    <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank"><img src="{% static 'imsapp\assets\images\logoos.png' %}" width="30" alt="Oreo"><span class="m-l-10">Institute Management System</a>
                     <button class="navbar-toggler" type="button">
                         <span class="navbar-toggler-bar bar1"></span>
                         <span class="navbar-toggler-bar bar2"></span>
@@ -37,7 +37,7 @@
                     <ul class="navbar-nav">
                                      
                         <li class="nav-item">
-                            <a class="nav-link btn btn-white btn-round" href="register.html">SIGN UP</a>
+                            <a class="nav-link btn btn-white btn-round" href="{% url 'register' %}">SIGN UP</a>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
         </nav>
 
         <div class="page-header">
-            <div class="page-header-image" style="background-image:url('../assets/images/login.jpg')"></div>
+            <div class="page-header-image" style="background-image:url('{% static 'imsapp\assets\images\bgreg.png' %}')"></div>
 
                 <div class="container">
         <div class="col-md-12 content-center">
@@ -82,7 +82,7 @@
                     </div>
                     <div class="footer text-center">
                         <input type="submit" class="btn btn-primary btn-round btn-lg btn-block" value ="SIGN IN">
-                        <h5><a href="forgot-password.html" class="link">Forgot Password?</a></h5>
+                        <h5><a href="{% url 'forgotpassword' %}" class="link">Forgot Password?</a></h5>
                     </div>
                 </form>
 
