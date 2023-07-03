@@ -43,8 +43,7 @@
         
           
         <li class="float-right">
-            <a href="{% url 'logout' %}" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
-            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+           <a href="{% url 'login' %}" class="mega-menu" data-close="true">Login</a>
         </li>
     </ul>
 </nav>        <!-- Left Sidebar -->
@@ -58,20 +57,17 @@
         <div class="tab-pane stretchRight active" id="dashboard">
             <div class="menu">
                 <ul class="list">
-                  
-                    <li class="active open"><h6>Dashboard</h6></li>            
-                    <li class=""><a href="{% url 'profile' %}"><span>My Profile</span></a></li>            
-                    <li class=""><a href="{% url 'student' %}"><span>Student</span></a></li>            
-                    <li class=""><a href="{% url 'teacher' %}"><span>Teacher</span></a></li>                       
+                   
+                    <br>
+                    <br>
+                    <li class="active open"><h6>Dashboard</h6></li>
+                    <li class=""><a href="javascript:void(0);"><span>Student</span></a></li>            
+                    <li class=""><a href="javascript:void(0);}"><span>Teacher</span></a></li>                       
                     <li class=""><a href="javascript:void(0);"><span>Department</span></a></li>
                     <li class=""><a href="{% url 'campus' %}"><span>Campus</span></a></li>
                     <li class=""><a href="{% url 'clubs' %}"><span>Clubs</span></a></li>
                     <li class=""><a href="{% url 'library' %}"><span>Library</span></a></li>
-                 
-                    
-                
-                    <li class="">
-                        <a href="{% url 'events' %}"><span>Events</span></a></li>
+                    <li class=""><a href="{% url 'events' %}"><span>Events</span></a></li>
                        
                     
                 
@@ -81,108 +77,6 @@
        
     </div>    
 </aside>
-        <!-- Right Sidebar -->
-<aside id="rightsidebar" class="right-sidebar">
-   
-    <div class="tab-content">
-        <div class="tab-pane slideRight active" id="setting">
-            <div class="slim_scroll">
-                <div class="card">
-                    <h6>General Settings</h6>
-                    <ul class="setting-list list-unstyled">
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox1" type="checkbox">
-                                <label for="checkbox1">Report Panel Usage</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox2" type="checkbox" checked="">
-                                <label for="checkbox2">Email Redirect</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox3" type="checkbox" checked="">
-                                <label for="checkbox3">Notifications</label>
-                            </div>                        
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox4" type="checkbox" checked="">
-                                <label for="checkbox4">Auto Updates</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>                
-                <div class="card">
-                    <h6>Skins</h6>
-                    <ul class="choose-skin list-unstyled">
-                        <li data-theme="purple">
-                            <div class="purple"></div>
-                        </li>                   
-                        <li data-theme="blue">
-                            <div class="blue"></div>
-                        </li>
-                        <li data-theme="cyan" class="active">
-                            <div class="cyan"></div>                    
-                        </li>
-                        <li data-theme="green">
-                            <div class="green"></div>
-                        </li>
-                        <li data-theme="orange">
-                            <div class="orange"></div>
-                        </li>
-                        <li data-theme="blush">
-                            <div class="blush"></div>                    
-                        </li>
-                    </ul>                    
-                </div>
-                <div class="card">
-                    <h6>Account Settings</h6>
-                    <ul class="setting-list list-unstyled">
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox5" type="checkbox" checked="">
-                                <label for="checkbox5">Offline</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="checkbox">
-                                <input id="checkbox6" type="checkbox" checked="">
-                                <label for="checkbox6">Location Permission</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card theme-light-dark">
-                    <h6>Left Menu</h6>
-                    <button class="t-light btn btn-default btn-simple btn-round btn-block">Light</button>
-                    <button class="t-dark btn btn-default btn-round btn-block">Dark</button>
-					<button class="m_img_btn btn btn-primary btn-round btn-block">Sidebar Image</button>                    
-                </div>                
-        
-            </div>                
-        </div>       
-        <div class="tab-pane right_chat stretchLeft" id="chat">
-            <div class="slim_scroll">
-                <div class="card">
-                    <div class="search">                        
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-addon">
-                                <i class="zmdi zmdi-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-       
-    </div>
-</aside>     
       
 {% block content %}
 <section class="content home">

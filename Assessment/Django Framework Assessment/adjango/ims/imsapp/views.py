@@ -1,8 +1,26 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import *
-from django.contrib.auth.models import User
+
 
 # Create your views here.
+
+
+def dashboard(request):
+
+    scount = Student.objects.all().count()
+    tcount = Teacher.objects.all().count()
+    ccount = Clubs.objects.all().count()
+    bcount = Library.objects.all().count()
+    context = {
+                "scount":scount,
+                "tcount":tcount,
+                "ccount":ccount,
+                "bcount":bcount,
+            }
+    return render(request,"imsapp/base.html",context)
+
+        
+
 def home(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
@@ -44,15 +62,17 @@ def home(request):
 def register(request):
     if request.POST:
         email = request.POST['email']
-        role = request.POST['category']
+        role = request.POST['role']
         password = request.POST['password']
         cpassword = request.POST['cpassword']
+        
         if password == cpassword:
             
-            my_user = User.objects.create(email,role,password)
+            my_user = User.objects.create(email=email,role=role,password=password)
 
             my_user.save()
             msg1 = "Registered Successfully"
+            
             context={
                 "msg1":msg1,
             }
@@ -70,16 +90,12 @@ def register(request):
 
 
 
-def forgotpassword(request):
-    return render(request,"imsapp/forgotpassword.html")
-
-
-
 
 def clubs(request):   
     alclub = Clubs.objects.all()
     
     return render(request,"imsapp/clubs.html",{"alclub":alclub})
+
 
 
 
@@ -107,8 +123,11 @@ def login(request):
             print("=====> Login form submitted!")
             p_email = request.POST['email']
             p_password = request.POST['password']
-            
+            print("=======",p_email)
+            print("========",p_password)
             try:
+                print("====>>> ")
+                print(User.objects.all())
                 uid = User.objects.get(email = p_email)
                 
                 if uid.password == p_password:
@@ -118,6 +137,8 @@ def login(request):
                         print("=======>First name = ",tid.firstname)
                         
                         request.session ['email'] = uid.email
+                        
+                        
                         context = {
                             "uid":uid,
                             "tid":tid,
@@ -140,7 +161,8 @@ def login(request):
                     return render(request,"imsapp/login.html",context)
                     
                         
-            except:
+            except Exception as e:
+                print("=================>",e)
                 msg = "Invalid email or password"
                 context = {
                     "msg" : msg
@@ -153,9 +175,9 @@ def login(request):
 def logout(request):
     if "email" in request.session:
         del request.session["email"]
-        return render(request,"imsapp/login.html")
+        return render(request,"imsapp/base.html")
     else:
-        return render(request,"imsapp/login.html")
+        return render(request,"imsapp/base.html")
 
 
 def profile(request):
@@ -209,7 +231,10 @@ def change_password(request):
 
         
     else:
-        return render(request,"imsapp/login.html")
+        return render(request,"imsapp/base.html")
+    
+    
+    
     
 def update_teacher_profile(request):
     if "email" in request.session:
@@ -270,16 +295,23 @@ def profile(request):
         uid = User.objects.get(email = request.session["email"])
         if uid.role == "Teacher":
             tid = Teacher.objects.get(user_id = uid)
+            context={
+                "uid":uid,
+                "tid":tid,
+            }
             
-            return render(request,"imsapp/profile.html")
+            return render(request,"imsapp/profile.html",context)
         
 def s_profile(request):
     if "email" in request.session:
         uid = User.objects.get(email = request.session["email"])
         if uid.role == "Student":
             sid = Student.objects.get(user_id = uid)
-            
-            return render(request,"imsapp/s_profile.html")
+            context={
+                "uid":uid,
+                "sid":sid,
+            }
+            return render(request,"imsapp/s_profile.html",context)
 
 def student(request):
     if "email" in request.session:
@@ -323,6 +355,9 @@ def s_student(request):
                 'sall':sall
             }
             return render(request,"imsapp/s_student.html",context)
+    else:
+          
+        return render(request,"imsapp/s_student.html",context)
 
         
 def s_teacher(request):
@@ -338,4 +373,13 @@ def s_teacher(request):
                 'tall':tall,
             }
             return render(request,"imsapp/s_teacher.html",context)    
+        
 
+
+def campus(request):
+    return render(request,"imsapp/campus.html")
+
+
+
+def forgotpassword(request):
+    return render(request,"imsapp/forgotpassword.html")

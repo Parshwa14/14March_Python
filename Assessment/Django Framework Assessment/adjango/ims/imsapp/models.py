@@ -16,8 +16,8 @@ class Teacher(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30) 
-    # date_of_birth =  models.DateTimeField(default=timezone.now)   
-    # date_of_joining =  models.DateTimeField(default=timezone.now)
+    # date_of_birth =  models.DateTimeField()   
+    # date_of_joining =  models.DateTimeField()
     pic = models.FileField(upload_to="media/images",default="media/images/user.png")
     
 class Student(models.Model):

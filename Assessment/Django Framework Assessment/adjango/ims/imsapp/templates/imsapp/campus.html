@@ -1,0 +1,99 @@
+﻿{% extends "imsapp/index.html" %}
+{% load static %}
+
+{% block content %}  
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Campus <small class="text-muted">Welcome to Institute Management System</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard' %} "><i class="zmdi zmdi-home"></i> Institute Management System</a></li>
+                                                                                        <li class="breadcrumb-item active">Campus</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="card single_post">
+                
+                <div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="{% static 'imsapp\assets\images\camp1.jpg' %}" alt="Awesome Image">
+                       
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card single_post">
+                
+                <div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="{% static 'imsapp\assets\images\camp2.jpg' %}" alt="Awesome Image">
+                       
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+     
+
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card single_post">
+                
+                <div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="{% static 'imsapp\assets\images\camp3.jpg' %}" alt="Awesome Image">
+                       
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card single_post">
+                
+                <div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="{% static 'imsapp\assets\images\camp4.jpg' %}" alt="Awesome Image">
+                       
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card single_post">
+                
+                <div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="{% static 'imsapp\assets\images\camp5.jpg' %}" alt="Awesome Image">
+                       
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+      
+                
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+{% endblock %}

@@ -19,21 +19,24 @@ from django.urls import path,include
 from imsapp import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.dashboard, name='dashboard'),
+    path('home/',views.home,name='home'),
     path('login/', views.login, name = 'login'),
     path('logout/', views.logout, name = 'logout'),
     path('profile/', views.profile, name = 'profile'),
     path('teacher/', views.teacher, name ='teacher'),
     path('s_teacher/', views.s_teacher, name ='s_teacher'),
     path('s_profile',views.s_profile,name='s_profile'),
+    path('change-password/', views.change_password, name ='change-password'),
     path('update-teacher-profile', views.update_teacher_profile, name = 'update-teacher-profile'),
     path('update-student-profile', views.update_student_profile, name = 'update-student-profile'),
     path('student/',views.student,name='student'),
     path('s_student/',views.s_student,name='s_student'),
     path('register',views.register,name='register'),
-    path('forgotpassword',views.forgotpassword,name='forgotpassword'),
     path('clubs',views.clubs,name='clubs'),
     path('library',views.library,name='library'),
     path('events',views.events,name='events'),
+    path('campus',views.campus,name='campus'),
+    path('forgotpassword',views.forgotpassword,name='forgotpassword'),
 
 ]
