@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import *
-
+from django.core.mail import send_mail
+from random import *
 
 # Create your views here.
 
@@ -61,31 +62,39 @@ def home(request):
 
 def register(request):
     if request.POST:
-        email = request.POST['email']
         role = request.POST['role']
-        password = request.POST['password']
-        cpassword = request.POST['cpassword']
+        email = request.POST['email']
+        plist = ["asdDAA","OKNilm","knnIFN","ad54aa4w","aIyB22"]
+        passwrd = request.POST['email'][2:5]+choice(plist)
+        uid = User.objects.create(email=email,role = role,password = passwrd)
+       
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
         
-        if password == cpassword:
-            
-            my_user = User.objects.create(email=email,role=role,password=password)
+        if request.POST['role'] == Student:
+            my_user = Student.objects.create(user_id = uid,firstname=firstname,lastname=lastname)
 
             my_user.save()
-            msg1 = "Registered Successfully"
+            msg1 = "Registered Successfully, For Password check your mail"
             
+            send_mail("Initial Password", "Your automatically generated password is "+ passwrd, "bhavsarparshwa@gmail.com",[email])
             context={
                 "msg1":msg1,
             }
             return redirect('login')
                   
         else:
-            msg = "Both the passwords are different"
-            context ={
-                        "msg" : msg,
-                    }
+            my_user = Teacher.objects.create(user_id=uid,firstname=firstname,lastname=lastname)
 
-            return render(request,"imsapp/register.html",context)
-    
+            my_user.save()
+            msg1 = "Registered Successfully, For Password check your mail"
+            
+            send_mail("Initial Passsword", "Your automatically generated password is "+ passwrd, "bhavsarparshwa@gmail.com",[email])
+            context={
+                "msg1":msg1,
+            }
+            return redirect('login')    
+        
     return render(request,"imsapp/register.html")
 
 
@@ -382,4 +391,58 @@ def campus(request):
 
 
 def forgotpassword(request):
+    
+    if request.POST: 
+        email = request.POST['email']
+        otp = randint(11111,99999)
+
+        try:
+            uid = User.objects.get(email = email)
+            uid.otp = otp
+            uid.save()
+            send_mail("Forgot Password","Your otp is "+str(otp),"bhavsarparshwa@gmail.com",[email])
+            context = {
+                'email' : email
+            }
+
+            return render(request,"imsapp/resetpassword.html",context)
+        except:
+            context = {
+                "emsg" : "Invalid email address"
+            }
+            return render(request,"imsapp/forgotpassword.html")
+
     return render(request,"imsapp/forgotpassword.html")
+
+
+def resetpassword(request):
+    if request.POST:
+        email = request.POST['email']
+        otp = request.POST['otp']
+        newpassword = request.POST['newpassword']
+        confirmpassword = request.POST['confirmpassword']
+       
+        uid = User.objects.get(email = email)
+        if str(otp) == otp:
+            if newpassword == confirmpassword:
+                uid.password = newpassword
+                uid.save()
+                context = {
+                    "email" : email,
+                    "smsg" : "Password successfully changed"
+                }
+                return render(request,"imsapp/login.html",context)
+            else:
+                emsg = "Invalid password"
+                context = {
+                    "email" : email,
+                    "emsg" : emsg
+                }
+                return render(request,"imsapp/resetpassword.html",context)
+        else:
+            emsg = "Invalid Otp"
+            context = {
+                    "email" : email,
+                    "emsg" : emsg
+            }
+            return render(request,"jobzilla_app/resetpassword.html",context)

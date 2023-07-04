@@ -38,5 +38,6 @@ urlpatterns = [
     path('events',views.events,name='events'),
     path('campus',views.campus,name='campus'),
     path('forgotpassword',views.forgotpassword,name='forgotpassword'),
-
+    path('resetpassword',views.resetpassword,name='resetpassword'),
+    
 ]
